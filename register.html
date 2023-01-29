@@ -122,7 +122,7 @@
                         fullname: name.value,
                         email: email.value,
                         username: username.value,
-                        password: pass.value      
+                        password: encPass()   
                     })
                     .then(()=>{
                       alert("User added successfully");
@@ -132,6 +132,11 @@
                     })
                   }
             });
+          }
+
+          function encPass() {
+            var pass12 = CryptoJS.AES.encrypt(pass.value, pass.value);
+            return pass12.toString();
           }
         
           //-----------------ASSIGN THE EVENTS----------------//
